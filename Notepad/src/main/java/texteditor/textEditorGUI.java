@@ -1,5 +1,6 @@
 package texteditor;
 
+import java.awt.Color;
 import java.awt.FileDialog;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
@@ -9,8 +10,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Set;
-import javax.swing.BorderFactory;
 
 
 public class textEditorGUI extends javax.swing.JFrame {
@@ -24,7 +23,7 @@ public class textEditorGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new RoundedPanel(20,new java.awt.Color(44, 47, 51));
         textArea = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuFile = new javax.swing.JMenu();
@@ -36,7 +35,6 @@ public class textEditorGUI extends javax.swing.JFrame {
         itemCut = new javax.swing.JMenuItem();
         itemCopy = new javax.swing.JMenuItem();
         itemPaste = new javax.swing.JMenuItem();
-        menuFile1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(35, 39, 42));
@@ -53,7 +51,7 @@ public class textEditorGUI extends javax.swing.JFrame {
         textArea.setWrapStyleWord(true);
         textArea.setAlignmentX(0.0F);
         textArea.setAlignmentY(0.0F);
-        textArea.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(44, 47, 51), 0, true));
+        textArea.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(44, 47, 51), 2, true));
         textArea.setSelectionColor(new java.awt.Color(114, 137, 218));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -62,18 +60,16 @@ public class textEditorGUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(textArea, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
+                .addComponent(textArea, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 8, Short.MAX_VALUE)
-                .addComponent(textArea, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 8, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(textArea, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
+                .addContainerGap())
         );
-
-        textArea.setBorder(BorderFactory.createLineBorder(new java.awt.Color(44, 47, 51)));
 
         jMenuBar1.setBackground(new java.awt.Color(44, 47, 51));
         jMenuBar1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -169,12 +165,6 @@ public class textEditorGUI extends javax.swing.JFrame {
 
         jMenuBar1.add(menuEdit);
 
-        menuFile1.setBackground(new java.awt.Color(44, 47, 51));
-        menuFile1.setForeground(new java.awt.Color(255, 255, 255));
-        menuFile1.setText("File");
-        menuFile1.setBorderPainted(false);
-        jMenuBar1.add(menuFile1);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -188,9 +178,8 @@ public class textEditorGUI extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        textArea.setBorder(null);
-
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void itemNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNewActionPerformed
@@ -296,7 +285,6 @@ public class textEditorGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu menuEdit;
     private javax.swing.JMenu menuFile;
-    private javax.swing.JMenu menuFile1;
     private javax.swing.JTextArea textArea;
     // End of variables declaration//GEN-END:variables
 }
