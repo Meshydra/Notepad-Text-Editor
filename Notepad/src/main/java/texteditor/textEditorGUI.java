@@ -1,6 +1,7 @@
 package texteditor;
 
 import java.awt.FileDialog;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
@@ -13,7 +14,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 
@@ -22,10 +23,8 @@ public class textEditorGUI extends javax.swing.JFrame {
     String filename;
     Clipboard clipboard = getToolkit().getSystemClipboard();
     
-    ImageIcon imageLogo = scaleImage("resources/scribble.png", 30);
-    ImageIcon imageLogoHover = new ImageIcon("resources/scribble-hover.png");
-    ImageIcon imageClose = new ImageIcon("resources/close.png");
-    ImageIcon proccessed = scaleImage("resources/logo.png", 30);
+    ImageIcon imageLogoh = scaleImage("resources/logoh.png", 32);
+    ImageIcon imageLogo = scaleImage("resources/logo.png", 32);
     
     
     public textEditorGUI() {
@@ -47,10 +46,8 @@ public class textEditorGUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         textArea = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        btnClose = new javax.swing.JButton();
-        btnMin = new javax.swing.JButton();
-        btnMax = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel()
+        ;
 
         mainMenu.setBackground(new java.awt.Color(44, 47, 51));
         mainMenu.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,15 +170,14 @@ public class textEditorGUI extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(textArea, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+                .addComponent(textArea, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(44, 47, 51));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(imageLogo);
-        jLabel1.setText("Scribble");
         jLabel1.setToolTipText("");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -202,61 +198,28 @@ public class textEditorGUI extends javax.swing.JFrame {
             }
         });
 
-        btnClose.setBackground(new java.awt.Color(255, 96, 92));
-        btnClose.setBorder(new javax.swing.border.LineBorder(javax.swing.UIManager.getDefaults().getColor("Actions.Red"), 1, true));
-
-        btnMin.setBackground(new java.awt.Color(255, 189, 68));
-        btnMin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(179, 189, 68))); // NOI18N
-
-        btnMax.setBackground(new java.awt.Color(0, 202, 78));
-        btnMax.setBorder(null);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnMin, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnMax, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(250, 250, 250)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnMin, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnMax, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-
-        btnClose.setOpaque(false);
-        btnClose.setFocusPainted(false);
-        btnClose.setBorderPainted(false);
-        btnClose.setContentAreaFilled(false);
-        btnClose.setBorder(BorderFactory.createEmptyBorder(0,0,0,0)); // Especially important
-        btnClose.setIcon(imageClose);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,7 +284,7 @@ public class textEditorGUI extends javax.swing.JFrame {
 
     private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
         // TODO add your handling code here:
-        jLabel1.setIcon(proccessed);
+        jLabel1.setIcon(imageLogoh);
     }//GEN-LAST:event_jLabel1MouseEntered
 
     private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
@@ -432,11 +395,9 @@ public class textEditorGUI extends javax.swing.JFrame {
         return p;
      }
      
+     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnClose;
-    private javax.swing.JButton btnMax;
-    private javax.swing.JButton btnMin;
     private javax.swing.JMenuItem itemClose;
     private javax.swing.JMenuItem itemCopy1;
     private javax.swing.JMenuItem itemCut1;
