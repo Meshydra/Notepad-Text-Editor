@@ -1,7 +1,8 @@
 package texteditor;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FileDialog;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
@@ -14,8 +15,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JScrollBar;
+import javax.swing.UIManager;
 
 
 public class textEditorGUI extends javax.swing.JFrame {
@@ -29,6 +31,7 @@ public class textEditorGUI extends javax.swing.JFrame {
     
     public textEditorGUI() {
         initComponents();
+        
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -44,6 +47,7 @@ public class textEditorGUI extends javax.swing.JFrame {
         itemCopy1 = new javax.swing.JMenuItem();
         itemPaste1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         textArea = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel()
@@ -137,14 +141,19 @@ public class textEditorGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(35, 39, 42));
         setMinimumSize(new java.awt.Dimension(500, 500));
-        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(44, 47, 51));
+
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setForeground(new java.awt.Color(54, 57, 65));
+        jScrollPane1.setAlignmentX(0.0F);
+        jScrollPane1.setAlignmentY(0.0F);
+        jScrollPane1.setAutoscrolls(true);
+        jScrollPane1.setViewportView(null);
 
         textArea.setBackground(new java.awt.Color(54, 57, 65));
         textArea.setColumns(20);
         textArea.setForeground(new java.awt.Color(255, 255, 255));
-        textArea.setLineWrap(true);
         textArea.setTabSize(0);
         textArea.setWrapStyleWord(true);
         textArea.setAlignmentX(0.0F);
@@ -157,27 +166,47 @@ public class textEditorGUI extends javax.swing.JFrame {
                 textAreaMouseReleased(evt);
             }
         });
+        jScrollPane1.setViewportView(textArea);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(textArea, javax.swing.GroupLayout.PREFERRED_SIZE, 779, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(textArea, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
+        JScrollBar verticalScrollBar = jScrollPane1.getVerticalScrollBar();
+        ModernScrollBarUI ui = new ModernScrollBarUI();
+        ModernScrollBarUI ui2 = new ModernScrollBarUI();
+
+        verticalScrollBar.setUI(ui2);
+        verticalScrollBar.setPreferredSize(new Dimension(8,8));
+        verticalScrollBar.setForeground(new Color(212, 0, 255));
+        JScrollBar HorizontalScrollBar = jScrollPane1.getHorizontalScrollBar();
+
+        HorizontalScrollBar.setUI(ui);
+        HorizontalScrollBar.setPreferredSize(new Dimension(8,8));
+        HorizontalScrollBar.setForeground(new Color(212, 0, 255));
+
+        HorizontalScrollBar.setBackground(new Color(54,57,65));
+        verticalScrollBar.setBackground(new Color(54,57,65));
+
         jPanel2.setBackground(new java.awt.Color(44, 47, 51));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(imageLogo);
+        jLabel1.setText("Scribble");
         jLabel1.setToolTipText("");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -204,14 +233,12 @@ public class textEditorGUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(490, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -219,7 +246,7 @@ public class textEditorGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,11 +312,13 @@ public class textEditorGUI extends javax.swing.JFrame {
     private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
         // TODO add your handling code here:
         jLabel1.setIcon(imageLogoh);
+        jLabel1.setForeground(new java.awt.Color(155, 155, 155));
     }//GEN-LAST:event_jLabel1MouseEntered
 
     private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
         // TODO add your handling code here:
-        jLabel1.setIcon(imageLogo);    
+        jLabel1.setIcon(imageLogo); 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_jLabel1MouseExited
 
     private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
@@ -396,6 +425,8 @@ public class textEditorGUI extends javax.swing.JFrame {
      }
      
      
+     
+     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itemClose;
@@ -408,6 +439,7 @@ public class textEditorGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu mainMenu;
     private javax.swing.JPopupMenu subMenu;
     private javax.swing.JTextArea textArea;
