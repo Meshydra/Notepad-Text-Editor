@@ -207,7 +207,7 @@ public class textEditorGUI extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(imageLogo);
         jLabel1.setText("Scribble");
-        jLabel1.setToolTipText("");
+        jLabel1.setToolTipText("Click to open menu");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
