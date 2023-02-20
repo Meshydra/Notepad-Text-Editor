@@ -27,21 +27,25 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class textEditorGUI extends javax.swing.JFrame {
 
     String filename;
+    //global variable to save clipboard
     Clipboard clipboard = getToolkit().getSystemClipboard();
     
+    // load images after scaling pngs
     ImageIcon imageLogoh = scaleImage("resources/logoh.png", 32);
     ImageIcon imageLogo = scaleImage("resources/logo.png", 32);
     
     ImageIcon imageCloseh = scaleImage("resources/closeh.png", 24);
     ImageIcon imageClose = scaleImage("resources/close.png", 24);
-    
+    // global variable to move the undecorated jframe
     int xMouse;
     int yMouse;
     
     
     public textEditorGUI() {
         initComponents();
+        // set the frame icon
         setIconImage(Toolkit.getDefaultToolkit().getImage("resources/logo.png"));
+        //makes the frame have rounded borders
          Shape roundedRectangle = new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20);
 
         // set the shape of the frame
@@ -400,6 +404,7 @@ public class textEditorGUI extends javax.swing.JFrame {
 
     private void navigationMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navigationMouseDragged
         // TODO add your handling code here:
+        // move the jframe according to mouse drag lcoation
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
 
@@ -408,6 +413,7 @@ public class textEditorGUI extends javax.swing.JFrame {
 
     private void navigationMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navigationMousePressed
         // TODO add your handling code here:
+        // get mouse location on application
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_navigationMousePressed
@@ -439,8 +445,11 @@ public class textEditorGUI extends javax.swing.JFrame {
         });
     }
     public void openFile() {
+     // creates a pop up menu object
     JFileChooser fileChooser = new JFileChooser();
+    // sets the filter so users can only choose txt files
     fileChooser.setFileFilter(new FileNameExtensionFilter("Text documents (*.txt)", "txt"));
+    
     int result = fileChooser.showOpenDialog(textEditorGUI.this);
     if (result == JFileChooser.APPROVE_OPTION) {
         String filename = fileChooser.getSelectedFile().getPath();
@@ -456,10 +465,12 @@ public class textEditorGUI extends javax.swing.JFrame {
 }
      
      public void newFile(){
+         // resets the file
      textArea.setText("");
         setTitle(filename);
 }
      public void saveFile() {
+         //saves the file as a text file
     JFileChooser fileChooser = new JFileChooser();
     fileChooser.setFileFilter(new FileNameExtensionFilter("Text documents (*.txt)", "txt"));
     int result = fileChooser.showSaveDialog(textEditorGUI.this);
