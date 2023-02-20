@@ -62,11 +62,11 @@ public class textEditorGUI extends javax.swing.JFrame {
         itemCopy1 = new javax.swing.JMenuItem();
         itemPaste1 = new javax.swing.JMenuItem();
         jPanel3 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        body = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         textArea = new javax.swing.JTextArea();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel()
+        navigation = new javax.swing.JPanel();
+        title = new javax.swing.JLabel()
         ;
         btnClose = new javax.swing.JLabel();
 
@@ -171,7 +171,7 @@ public class textEditorGUI extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(44, 47, 51));
+        body.setBackground(new java.awt.Color(44, 47, 51));
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setForeground(new java.awt.Color(54, 57, 65));
@@ -197,18 +197,18 @@ public class textEditorGUI extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(textArea);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout bodyLayout = new javax.swing.GroupLayout(body);
+        body.setLayout(bodyLayout);
+        bodyLayout.setHorizontalGroup(
+            bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bodyLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        bodyLayout.setVerticalGroup(
+            bodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bodyLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
                 .addContainerGap())
@@ -230,44 +230,43 @@ public class textEditorGUI extends javax.swing.JFrame {
         HorizontalScrollBar.setBackground(new Color(54,57,65));
         verticalScrollBar.setBackground(new Color(54,57,65));
 
-        jPanel2.setBackground(new java.awt.Color(44, 47, 51));
-        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
-        jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        navigation.setBackground(new java.awt.Color(44, 47, 51));
+        navigation.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        navigation.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel2MouseDragged(evt);
+                navigationMouseDragged(evt);
             }
         });
-        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        navigation.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel2MousePressed(evt);
+                navigationMousePressed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(imageLogo);
-        jLabel1.setText("Scribble");
-        jLabel1.setToolTipText("Click to open menu");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        title.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        title.setForeground(new java.awt.Color(255, 255, 255));
+        title.setIcon(imageLogo);
+        title.setText("Scribble");
+        title.setToolTipText("Click to open menu");
+        title.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        title.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                titleMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel1MouseEntered(evt);
+                titleMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel1MouseExited(evt);
+                titleMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel1MousePressed(evt);
+                titleMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jLabel1MouseReleased(evt);
+                titleMouseReleased(evt);
             }
         });
 
-        btnClose.setText("jLabel2");
         btnClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -284,23 +283,23 @@ public class textEditorGUI extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout navigationLayout = new javax.swing.GroupLayout(navigation);
+        navigation.setLayout(navigationLayout);
+        navigationLayout.setHorizontalGroup(
+            navigationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(navigationLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        navigationLayout.setVerticalGroup(
+            navigationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(navigationLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(navigationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnClose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -311,15 +310,15 @@ public class textEditorGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(navigation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(navigation, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -368,50 +367,50 @@ public class textEditorGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_textAreaMouseReleased
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void titleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleMouseClicked
         // TODO add your handling code here:
         if(evt.isPopupTrigger()){
-            mainMenu.show(this,jLabel1.getX(),jLabel1.getY());
+            mainMenu.show(this,title.getX(),title.getY());
         }
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_titleMouseClicked
 
-    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
+    private void titleMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleMouseEntered
         // TODO add your handling code here:
-        jLabel1.setIcon(imageLogoh);
-        jLabel1.setForeground(new java.awt.Color(155, 155, 155));
-    }//GEN-LAST:event_jLabel1MouseEntered
+        title.setIcon(imageLogoh);
+        title.setForeground(new java.awt.Color(155, 155, 155));
+    }//GEN-LAST:event_titleMouseEntered
 
-    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
+    private void titleMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleMouseExited
         // TODO add your handling code here:
-        jLabel1.setIcon(imageLogo); 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_jLabel1MouseExited
+        title.setIcon(imageLogo); 
+        title.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_titleMouseExited
 
-    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
+    private void titleMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleMousePressed
         // TODO add your handling code here:
-            mainMenu.show(this,jLabel1.getX(),jLabel1.getY()+20);
-    }//GEN-LAST:event_jLabel1MousePressed
+            mainMenu.show(this,title.getX(),title.getY()+20);
+    }//GEN-LAST:event_titleMousePressed
 
-    private void jLabel1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseReleased
+    private void titleMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleMouseReleased
         // TODO add your handling code here:
         if(evt.isPopupTrigger()){
-            mainMenu.show(this,jLabel1.getX(),jLabel1.getY());
+            mainMenu.show(this,title.getX(),title.getY());
         }
-    }//GEN-LAST:event_jLabel1MouseReleased
+    }//GEN-LAST:event_titleMouseReleased
 
-    private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
+    private void navigationMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navigationMouseDragged
         // TODO add your handling code here:
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
 
         this.setLocation(x- xMouse,y-yMouse);
-    }//GEN-LAST:event_jPanel2MouseDragged
+    }//GEN-LAST:event_navigationMouseDragged
 
-    private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
+    private void navigationMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navigationMousePressed
         // TODO add your handling code here:
         xMouse = evt.getX();
         yMouse = evt.getY();
-    }//GEN-LAST:event_jPanel2MousePressed
+    }//GEN-LAST:event_navigationMousePressed
 
     private void btnCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseEntered
         // TODO add your handling code here:
@@ -530,6 +529,7 @@ public class textEditorGUI extends javax.swing.JFrame {
      
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel body;
     private javax.swing.JLabel btnClose;
     private javax.swing.JMenuItem itemClose;
     private javax.swing.JMenuItem itemCopy1;
@@ -538,13 +538,12 @@ public class textEditorGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemOpen;
     private javax.swing.JMenuItem itemPaste1;
     private javax.swing.JMenuItem itemSave;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu mainMenu;
+    private javax.swing.JPanel navigation;
     private javax.swing.JPopupMenu subMenu;
     private javax.swing.JTextArea textArea;
+    private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
