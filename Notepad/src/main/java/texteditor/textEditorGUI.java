@@ -514,6 +514,7 @@ public class textEditorGUI extends javax.swing.JFrame {
         textArea.replaceRange("", textArea.getSelectionStart(), textArea.getSelectionEnd());
      }
      
+     //scale the image before declaring as imageicon
      public ImageIcon scaleImage(String location, int size) {
     BufferedImage img = null;
     try {
